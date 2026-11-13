@@ -1,37 +1,512 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Padget Callan's academic, research and data visualisation portfolio.">
     <title>Padget Callan | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f8f5;
+            color: #263447;
+            line-height: 1.7;
+        }
+
+        :root {
+            --navy: #172b46;
+            --blue: #607d9b;
+            --muted: #687587;
+            --cream: #f8f8f5;
+            --white: #ffffff;
+            --border: #e3e6e9;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-content {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--navy);
+            font-size: 19px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 27px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        /* Introduction */
+        .hero {
+            padding: 105px 0 100px;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .eyebrow {
+            color: #b9c9d9;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(42px, 7vw, 66px);
+            font-weight: normal;
+            line-height: 1.15;
+            max-width: 750px;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: #dce4ed;
+            font-size: 17px;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .hero-link {
+            display: inline-block;
+            padding: 11px 22px;
+            border: 1px solid #c5d2df;
+            border-radius: 3px;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .hero-link:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        /* General sections */
+        section {
+            padding: 75px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-label {
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--navy);
+            font-family: Georgia, serif;
+            font-size: 34px;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+
+        .section-intro {
+            color: var(--muted);
+            max-width: 720px;
+            margin-bottom: 30px;
+        }
+
+        /* About */
+        .about-text {
+            max-width: 800px;
+            font-size: 16px;
+        }
+
+        /* Education and experience cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 27px;
+        }
+
+        .card h3 {
+            color: var(--navy);
+            font-size: 18px;
+            margin-bottom: 7px;
+        }
+
+        .card .subtitle {
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 13px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* Alternate section background */
+        .alternate {
+            background: #eef1f3;
+        }
+
+        /* Projects */
+        .project-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 720px;
+        }
+
+        .project-top {
+            background: #e8edf1;
+            padding: 35px;
+            color: var(--navy);
+        }
+
+        .project-top span {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--blue);
+            font-weight: bold;
+        }
+
+        .project-top h3 {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+
+        .project-details {
+            padding: 28px 35px;
+        }
+
+        .project-details p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--navy);
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 1px solid var(--blue);
+            padding-bottom: 4px;
+        }
+
+        .project-link:hover {
+            color: var(--blue);
+        }
+
+        /* Research interests */
+        .interest-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .interest-list span {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 10px 17px;
+            color: var(--navy);
+            font-size: 13px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: #dce4ed;
+            text-align: center;
+            padding: 30px 15px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 650px) {
+            .nav-content {
+                padding: 15px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .hero {
+                padding: 75px 0;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Welcome to my portfolio!</h1>
+    <nav>
+        <div class="container nav-content">
+            <a class="logo" href="#home">PADGET CALLAN</a>
 
-    <p>
-        I'm Padget Callan, a postgraduate student studying
-        People Analytics and Human-Centric Management at UCL.
-    </p>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#research">Research</a>
+            </div>
+        </div>
+    </nav>
 
-    <section>
-        <h2>Data Visualisation Projects</h2>
+    <header class="hero" id="home">
+        <div class="container">
+            <p class="eyebrow">People Analytics · Psychology · Research</p>
 
-        <h3>Game of Thrones Network Analysis</h3>
+            <h1>Understanding people. Exploring data. Creating impact.</h1>
 
-        <p>
-            An interactive network analysis exploring character
-            connections using degree centrality, brokerage,
-            and eigenvector centrality.
-        </p>
+            <p>
+                Hello, I'm Padget Callan, a postgraduate student at
+                UCL studying People Analytics and Human-Centric
+                Management, with an academic background in psychology.
+            </p>
 
-        <a href="charts/network.html" target="_blank">
-            Explore Interactive Network Visualisation
-        </a>
+            <a class="hero-link" href="#about">Discover my work ↓</a>
+        </div>
+    </header>
 
-    </section>
+    <main>
+
+        <section id="about">
+            <div class="container">
+                <p class="section-label">01 / About</p>
+                <h2>A little about me</h2>
+
+                <p class="about-text">
+                    I am interested in understanding how people,
+                    behaviour and organisational practices intersect.
+                    My background in Psychology, alongside my studies
+                    in Women's Studies and English, has shaped my
+                    interest in individual experiences, representation
+                    and inclusive environments.
+
+                    <br><br>
+
+                    Through my academic, research and professional
+                    experiences, I have developed an appreciation for
+                    combining people-focused perspectives with
+                    evidence-based approaches to problem-solving.
+                    I am particularly interested in how data and
+                    behavioural insights can inform better decisions
+                    and more human-centred organisations.
+                </p>
+            </div>
+        </section>
+
+        <section class="alternate" id="education">
+            <div class="container">
+                <p class="section-label">02 / Education</p>
+                <h2>Academic background</h2>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>University College London</h3>
+                        <p class="subtitle">
+                            MSc People Analytics and Human-Centric Management
+                        </p>
+                        <p>
+                            Postgraduate study exploring people analytics,
+                            organisational behaviour and human-centred
+                            approaches to management.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Washington State University</h3>
+                        <p class="subtitle">
+                            BS Psychology · Magna Cum Laude
+                        </p>
+                        <p>
+                            Minors in Women's Studies and English.
+                            Graduated December 2024 with a 3.83 GPA.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <p class="section-label">03 / Experience</p>
+                <h2>Professional experience</h2>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>Academic Success Coach</h3>
+                        <p class="subtitle">
+                            Academic Success and Career Center · WSU
+                        </p>
+                        <p>
+                            Supported undergraduate students through
+                            individual coaching, workshops and academic
+                            skill development. Helped students navigate
+                            university resources, build effective
+                            strategies and work towards their goals.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Undergraduate Research Assistant</h3>
+                        <p class="subtitle">Psychology · WSU</p>
+                        <p>
+                            Contributed to psychology research through
+                            participant guidance, laboratory data
+                            collection and behavioural research activities.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Psychology Teaching Assistant</h3>
+                        <p class="subtitle">Psychology · WSU</p>
+                        <p>
+                            Supported undergraduate learning through
+                            assessment grading, research methods
+                            coursework and academic feedback.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="alternate" id="projects">
+            <div class="container">
+                <p class="section-label">04 / Projects</p>
+                <h2>Data visualisation & projects</h2>
+
+                <p class="section-intro">
+                    Exploring how data visualisation and analytical
+                    techniques can reveal patterns, relationships
+                    and insights.
+                </p>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <span>Python · Network Analysis · Data Visualisation</span>
+                        <h3>Game of Thrones Network Analysis</h3>
+                    </div>
+
+                    <div class="project-details">
+                        <p>
+                            An interactive network analysis exploring
+                            character connections through degree
+                            centrality, brokerage and eigenvector
+                            centrality. Built using Python and Plotly,
+                            with interactive measures and character
+                            comparisons.
+                        </p>
+
+                        <a class="project-link"
+                           href="charts/network.html"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Explore interactive visualisation →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research">
+            <div class="container">
+                <p class="section-label">05 / Research interests</p>
+                <h2>Areas of interest</h2>
+
+                <p class="section-intro">
+                    Topics that inform my academic interests and
+                    ongoing exploration.
+                </p>
+
+                <div class="interest-list">
+                    <span>People Analytics</span>
+                    <span>Organisational Behaviour</span>
+                    <span>Human-Centred Management</span>
+                    <span>Psychology</span>
+                    <span>Gender & Representation</span>
+                    <span>Workplace Inclusion</span>
+                    <span>Data Visualisation</span>
+                    <span>Evidence-Based Decision-Making</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Padget Callan · Academic & Professional Portfolio</p>
+    </footer>
 
 </body>
 </html>
+
