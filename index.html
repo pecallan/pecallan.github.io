@@ -132,6 +132,36 @@
             color: var(--navy);
         }
 
+        /* Introduction with headshot */
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-inner h1 {
+            font-size: clamp(38px, 5vw, 56px);
+        }
+
+        .hero-photo {
+            justify-self: end;
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .hero-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 14px 14px 0 rgba(185, 201, 217, 0.18);
+        }
+
         /* General sections */
         section {
             padding: 75px 0;
@@ -298,6 +328,17 @@
                 padding: 75px 0;
             }
 
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-photo {
+                order: -1;
+                justify-self: start;
+                max-width: 220px;
+            }
+
             section {
                 padding: 55px 0;
             }
@@ -322,18 +363,26 @@
     </nav>
 
     <header class="hero" id="home">
-        <div class="container">
-            <p class="eyebrow">People Analytics · Psychology · Research</p>
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <p class="eyebrow">People Analytics · Psychology · Research</p>
 
-            <h1>Understanding people. Exploring data. Creating impact.</h1>
+                <h1>Understanding people. Exploring data. Creating impact.</h1>
 
-            <p>
-                Hello, I'm Padget Callan, a postgraduate student at
-                UCL studying People Analytics and Human-Centric
-                Management, with an academic background in psychology.
-            </p>
+                <p>
+                    Hello, I'm Padget Callan, a postgraduate student at
+                    UCL studying People Analytics and Human-Centric
+                    Management, with an academic background in psychology.
+                </p>
 
-            <a class="hero-link" href="#about">Discover my work ↓</a>
+                <a class="hero-link" href="#about">Discover my work ↓</a>
+            </div>
+
+            <figure class="hero-photo">
+                <img src="images/headshot.jpg"
+                     alt="Portrait of Padget Callan smiling outdoors in front of a brick building"
+                     width="712" height="890">
+            </figure>
         </div>
     </header>
 
