@@ -13,7 +13,17 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
+            .profile-picture {
+                width: 200px;
+                height: 200px;
+                 object-fit: cover;
+                object-position: center 30%;
+                border-radius: 50%;
+                display: block;
+                margin: 0 auto;
+        }
+        
         html {
             scroll-behavior: smooth;
         }
@@ -379,7 +389,9 @@
             </div>
 
             <figure class="hero-photo">
-                <img src="images/headshot.JPG" alt="Padget's headshot">
+                <img src="./images/headshot.JPG"
+                     alt="Portrait of Padget Callan"
+                     class="profile-picture">
                      alt="Portrait of Padget Callan smiling outdoors in front of a brick building"
                      width="712" height="890">
             </figure>
